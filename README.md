@@ -1,6 +1,6 @@
-# Project Name
+# Related Listings of TheGoodPlace
 
-> Project description
+> This repo contains the related listings for TheGoodPlace, an Airbnb item page. The related listings are are "More places to stay" and "Things to do nearby". This component provides the user further options for places to stay, as well suggests activities/events that are near the given place's location.
 
 ## Related Projects
 
