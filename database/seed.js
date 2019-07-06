@@ -8,37 +8,33 @@
 //perhaps use sequelize to save data to database
 
 const faker = require('faker');
-const fs = require('fs')
+const db = require('./index.js');
+const Sequelize = require('sequelize');
 
-function generatePlaces() {
+const sequelize = new Sequelize('places', 'root', '', {
+  host: 'localhost',
+  dialect: 'mysql'
+});
 
-  let places = [];
-  const placeType = ['ENTIRE HOUSE', 'ENTIRE VILLA', 'ENTIRE APARTMENT'];
 
-  for (let id=1; id <= 100; id++) {
+  // const placeType = ['ENTIRE HOUSE', 'ENTIRE VILLA', 'ENTIRE APARTMENT'];
 
-    let place_image = faker.image.city();
-    let place_location = faker.address.city();
-    let accommodation_type = placeType[Math.floor(Math.random * Math.floor(placeType.length))];
-    let place_name = faker.random.words();
-    let price = `$${Math.floor(Math.random * Math.floor(1000))}/night`;
-    let rating = Math.floor(Math.random() * (6 - 1) + 1);
+  //   let place_image = faker.image.city();
+  //   let place_location = faker.address.city();
+  //   let accommodation_type = placeType[Math.floor(Math.random * Math.floor(placeType.length))];
+  //   let place_name = faker.random.words();
+  //   let price = `$${Math.floor(Math.random * Math.floor(1000))}/night`;
+  //   let rating = Math.floor(Math.random() * (6 - 1) + 1);
 
-    places.push({
-        "place_id": id,
-        "place_image": place_image,
-        "place_location": place_location,
-        "accommodation_type": accommodation_type,
-        "place_name": place_name,
-        "price": price,
-        "rating": rating,
-    });
-  }
+  //   places.push({
+  //       "place_id": id,
+  //       "place_image": place_image,
+  //       "place_location": place_location,
+  //       "accommodation_type": accommodation_type,
+  //       "place_name": place_name,
+  //       "price": price,
+  //       "rating": rating,
+  //   });
+  // }
 
-  return { "data": places }
-}
-
-let dataObj = generatePlaces();
-
-fs.writeFileSync('data.json', JSON.stringify(dataObj, null, '\t'));
 
