@@ -27,7 +27,8 @@ CREATE TABLE IF NOT EXISTS favourites (
 
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT,
-    name_user VARCHAR(255) NOT NULL,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255),
     PRIMARY KEY (id)
 )
 
