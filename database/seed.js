@@ -99,35 +99,33 @@ Favourite.belongsTo(User);
 Place.belongsToMany(Favourite);
 Favourite.belongsTo(Place);
 
-// CREATE TABLE IF NOT EXISTS favourites (
-//   id INT AUTO_INCREMENT,
-//   listing_info TEXT NOT NULL,
-//   space_info TEXT NOT NULL,
-//   reviews TEXT NOT NULL,
-//   review_date VARCHAR(255) NOT NULL,
-//   place_id INT UNSIGNED NOT NULL REFERENCES places(id),
-//   id_users INT UNSIGNED NOT NULL REFERENCES users(id),
-//   PRIMARY KEY (id)
-// );
+const placeType = ['ENTIRE HOUSE', 'ENTIRE VILLA', 'ENTIRE APARTMENT'];
 
-  // const placeType = ['ENTIRE HOUSE', 'ENTIRE VILLA', 'ENTIRE APARTMENT'];
+User.sync({ force: true }).then(() => {
+  return User.create({
+    first_name: faker.name.firstName(),
+    last_name: faker.name.lastName()
+  });
+});
 
-  //   let place_image = faker.image.city();
-  //   let place_location = faker.address.city();
-  //   let accommodation_type = placeType[Math.floor(Math.random * Math.floor(placeType.length))];
-  //   let place_name = faker.random.words();
-  //   let price = `$${Math.floor(Math.random * Math.floor(1000))}/night`;
-  //   let rating = Math.floor(Math.random() * (6 - 1) + 1);
+Place.sync({ force: true }).then(() => {
+  return Place.create({
+    place_image = faker.image.city(),
+    place_location = faker.address.city(),
+    accommodation_type = placeType[Math.floor(Math.random * Math.floor(placeType.length))],
+    place_name = faker.random.words(),
+    price = Math.floor(Math.random * Math.floor(1000)),
+    rating = Math.floor(Math.random() * (6 - 1) + 1)
+  });
+});
 
-  //   places.push({
-  //       "place_id": id,
-  //       "place_image": place_image,
-  //       "place_location": place_location,
-  //       "accommodation_type": accommodation_type,
-  //       "place_name": place_name,
-  //       "price": price,
-  //       "rating": rating,
-  //   });
-  // }
-
+Favourite.sync({ force: true }).then(() => {
+  // Now the `users` table in the database corresponds to the model definition
+  return Favourite.create({
+    listing_info = faker.lorem.paragraph(),
+    space_info = faker.lorem.paragraph(),
+    reviews = faker.lorem.paragraphs(),
+    review_date = faker.date.month()
+  });
+});
 
