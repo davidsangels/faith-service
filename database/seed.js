@@ -101,31 +101,32 @@ Favourite.belongsTo(Place);
 
 const placeType = ['ENTIRE HOUSE', 'ENTIRE VILLA', 'ENTIRE APARTMENT'];
 
-User.sync({ force: true }).then(() => {
-  return User.create({
-    first_name: faker.name.firstName(),
-    last_name: faker.name.lastName()
+for (let i = 0; i < 100; i++) {
+  User.sync({ force: true }).then(() => {
+    return User.create({
+      first_name: faker.name.firstName(),
+      last_name: faker.name.lastName()
+    });
   });
-});
-
-Place.sync({ force: true }).then(() => {
-  return Place.create({
-    place_image = faker.image.city(),
-    place_location = faker.address.city(),
-    accommodation_type = placeType[Math.floor(Math.random * Math.floor(placeType.length))],
-    place_name = faker.random.words(),
-    price = Math.floor(Math.random * Math.floor(1000)),
-    rating = Math.floor(Math.random() * (6 - 1) + 1)
+  
+  Place.sync({ force: true }).then(() => {
+    return Place.create({
+      place_image = faker.image.city(),
+      place_location = faker.address.city(),
+      accommodation_type = placeType[Math.floor(Math.random * Math.floor(placeType.length))],
+      place_name = faker.random.words(),
+      price = Math.floor(Math.random * Math.floor(1000)),
+      rating = Math.floor(Math.random() * (6 - 1) + 1)
+    });
   });
-});
-
-Favourite.sync({ force: true }).then(() => {
-  // Now the `users` table in the database corresponds to the model definition
-  return Favourite.create({
-    listing_info = faker.lorem.paragraph(),
-    space_info = faker.lorem.paragraph(),
-    reviews = faker.lorem.paragraphs(),
-    review_date = faker.date.month()
+  
+  Favourite.sync({ force: true }).then(() => {
+    return Favourite.create({
+      listing_info = faker.lorem.paragraph(),
+      space_info = faker.lorem.paragraph(),
+      reviews = faker.lorem.paragraphs(),
+      review_date = faker.date.month()
+    });
   });
-});
+}
 
