@@ -4,10 +4,9 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/the-good-place/Image-gallery
+  - https://github.com/the-good-place/reviews-service
+  - https://github.com/the-good-place/keaton-service
 
 ## Table of Contents
 
@@ -33,7 +32,9 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 From within the root directory:
 
 ```sh
-npm install -g webpack
-npm install
+npm install react react-dom
+npm install body-parser express faker nodemon mysql sequelize
+npm install @babel/cli @babel/core @babel/preset-react @babel/preset-react --save-dev
+npm install babel-loader eslint --save-dev
+npm install webpack webpack-cli --save-dev
 ```
-
