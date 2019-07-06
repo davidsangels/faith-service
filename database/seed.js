@@ -11,7 +11,7 @@ const faker = require('faker');
 const db = require('./index.js');
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('places', 'root', '', {
+const sequelize = new Sequelize('related_listings', 'root', '', {
   host: 'localhost',
   dialect: 'mysql'
 });
@@ -24,6 +24,8 @@ sequelize
   .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
+
+
 
 
   // const placeType = ['ENTIRE HOUSE', 'ENTIRE VILLA', 'ENTIRE APARTMENT'];
