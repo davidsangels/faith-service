@@ -71,16 +71,33 @@ Place.init({
   modelName: 'place'
 });
 
-// CREATE TABLE IF NOT EXISTS places (
-//   id INT AUTO_INCREMENT,
-//   place_image TEXT NOT NULL,
-//   place_location VARCHAR(255) NOT NULL,
-//   accommodation_type VARCHAR(255) NOT NULL,
-//   place_name VARCHAR(255) NOT NULL,
-//   price INT NOT NULL,
-//   rating FLOAT,
-//   PRIMARY KEY (id)
-// );
+class Favourite extends Model {}
+Favourite.init({
+  listing_info: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  space_info: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  reviews: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  review_date: {
+    type: Sequelize.DATE,
+    allowNull: false
+  },
+}, {
+  sequelize,
+  modelName: 'favourite'
+});
+
+User.hasMany(Favourite);
+Favourite.belongsTo(User);
+Place.belongsToMany(Favourite);
+Favourite.belongsTo(Place);
 
 // CREATE TABLE IF NOT EXISTS favourites (
 //   id INT AUTO_INCREMENT,
