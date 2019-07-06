@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS favourites (
     reviews TEXT NOT NULL,
     username VARCHAR(255) NOT NULL,
     review_date VARCHAR(255) NOT NULL,
+    place_id INT UNSIGNED NOT NULL REFERENCES places(id),
     PRIMARY KEY (favourites_id)
 );
 
