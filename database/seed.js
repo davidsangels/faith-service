@@ -86,7 +86,7 @@ Favourite.init({
 
 User.hasMany(Favourite);
 Favourite.belongsTo(User);
-Place.belongsToMany(Favourite);
+Place.hasMany(Favourite);
 Favourite.belongsTo(Place);
 
 
