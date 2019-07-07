@@ -54,8 +54,7 @@ Place.init({
     allowNull: false
   },
   rating: {
-    type: Sequelize.INTEGER,
-    allowNull: false
+    type: Sequelize.INTEGER
   }
 }, {
   sequelize,
