@@ -120,3 +120,52 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
+// Format: Model.bulkCreate(records: Array, options: Object)
+
+const userRecords = [];
+const placeRecords = [];
+const favouriteRecords = [];
+const options = {validate: true};
+
+for (let i = 0; i < 100; i++) {
+  userRecords.push({
+    first_name: faker.name.firstName(),
+    last_name: faker.name.lastName()
+  });
+  placeRecords.push({
+    place_image: faker.image.city(),
+    place_location: faker.address.city(),
+    accommodation_type: placeType[Math.floor(Math.random * Math.floor(placeType.length))],
+    place_name: faker.random.words(),
+    price: Math.floor(Math.random * Math.floor(1000)),
+    rating: Math.floor(Math.random() * (6 - 1) + 1)
+  });
+  favouriteRecords.push({
+    listing_info: faker.lorem.paragraph(),
+    space_info: faker.lorem.paragraph(),
+    reviews: faker.lorem.paragraphs(),
+    review_date: faker.date.month()
+  });
+}
+
+User.bulkCreate(userRecords, options)
+  .then(() => {
+    return User.findAll();
+  }).then(users => {
+    console.log(users)
+  });
+
+Place.bulkCreate(placeRecords, options)
+  .then(() => {
+    return Place.findAll();
+  }).then(places => {
+    console.log(places)
+  });
+
+Favourite.bulkCreate(favouriteRecords, options)
+  .then(() => {
+    return Favourite.findAll();
+  }).then(favourites => {
+    console.log(favourites)
+  });
+  
