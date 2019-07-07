@@ -1,12 +1,3 @@
-// const faker = require('faker');
-
-// for (let i = 0; i < 100; i++) {
-//     `user${i}` = faker.fake("{{name.firstName}} {{name.lastName}}");
-// }
-
-//need to fix -- not using data.json
-//perhaps use sequelize to save data to database
-
 const faker = require('faker');
 const db = require('./index.js');
 const Sequelize = require('sequelize');
