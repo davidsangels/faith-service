@@ -89,43 +89,14 @@ Favourite.belongsTo(User);
 Place.belongsToMany(Favourite);
 Favourite.belongsTo(Place);
 
-const placeType = ['ENTIRE HOUSE', 'ENTIRE VILLA', 'ENTIRE APARTMENT'];
-
-for (let i = 0; i < 100; i++) {
-  User.sync({ force: true }).then(() => {
-    return User.create({
-      first_name: faker.name.firstName(),
-      last_name: faker.name.lastName()
-    });
-  });
-  
-  Place.sync({ force: true }).then(() => {
-    return Place.create({
-      place_image = faker.image.city(),
-      place_location = faker.address.city(),
-      accommodation_type = placeType[Math.floor(Math.random * Math.floor(placeType.length))],
-      place_name = faker.random.words(),
-      price = Math.floor(Math.random * Math.floor(1000)),
-      rating = Math.floor(Math.random() * (6 - 1) + 1)
-    });
-  });
-  
-  Favourite.sync({ force: true }).then(() => {
-    return Favourite.create({
-      listing_info = faker.lorem.paragraph(),
-      space_info = faker.lorem.paragraph(),
-      reviews = faker.lorem.paragraphs(),
-      review_date = faker.date.month()
-    });
-  });
-}
 
 // Format: Model.bulkCreate(records: Array, options: Object)
-
 const userRecords = [];
 const placeRecords = [];
 const favouriteRecords = [];
 const options = {validate: true};
+
+const placeType = ['ENTIRE HOUSE', 'ENTIRE VILLA', 'ENTIRE APARTMENT'];
 
 for (let i = 0; i < 100; i++) {
   userRecords.push({
@@ -168,4 +139,3 @@ Favourite.bulkCreate(favouriteRecords, options)
   }).then(favourites => {
     console.log(favourites)
   });
-  
