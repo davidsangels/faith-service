@@ -33,6 +33,6 @@ CREATE TABLE IF NOT EXISTS users (
 )
 
 
--- remember to add foreign keys
--- mysql -uroot < ./database/schema.sql 
+-- check foreign keys
+-- mysql -uroot < ./database/schema.sql (to run file)
 -- mysql -uroot (mysql environment)
