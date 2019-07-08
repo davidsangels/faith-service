@@ -22,6 +22,7 @@ User.init({
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
+    allowNull: false,
     primaryKey: true
   },
   first_name: {
@@ -42,6 +43,7 @@ Place.init({
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
+    allowNull: false,
     primaryKey: true
   },
   place_image: {
@@ -78,6 +80,7 @@ Favourite.init({
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
+    allowNull: false,
     primaryKey: true
   },
   listing_info: {
