@@ -16,9 +16,9 @@ sequelize
     console.error('Unable to connect to the database:', err);
   });
 
-const Model = Sequelize.Model;
-class User extends Model {}
-User.init({
+// const Model = Sequelize.Model;
+// class User extends Model {}
+const User = sequelize.define('user', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -33,13 +33,13 @@ User.init({
     type: Sequelize.STRING
   }
 }, {
-  sequelize,
-  modelName: 'user',
+  // sequelize,
+  // modelName: 'user',
   timestamps: false
 });
 
-class Place extends Model {}
-Place.init({
+// class Place extends Model {}
+const Place = sequelize.define('place', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -70,13 +70,13 @@ Place.init({
     type: Sequelize.INTEGER
   }
 }, {
-  sequelize,
-  modelName: 'place',
+  // sequelize,
+  // modelName: 'place',
   timestamps: false
 });
 
-class Favourite extends Model {}
-Favourite.init({
+// class Favourite extends Model {}
+const Favourite = sequelize.define('favourite', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -84,15 +84,15 @@ Favourite.init({
     primaryKey: true
   },
   listing_info: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false
   },
   space_info: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false
   },
   reviews: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false
   },
   review_date: {
@@ -100,15 +100,15 @@ Favourite.init({
     allowNull: false
   },
 }, {
-  sequelize,
-  modelName: 'favourite',
+  // sequelize,
+  // modelName: 'favourite',
   timestamps: false
 });
 
-User.hasMany(Favourite);
-Favourite.belongsTo(User);
-Place.hasMany(Favourite);
-Favourite.belongsTo(Place);
+// User.hasMany(Favourite);
+// Favourite.belongsTo(User);
+// Place.hasMany(Favourite);
+// Favourite.belongsTo(Place);
 
 
 // Format: Model.bulkCreate(records: Array, options: Object)
@@ -135,28 +135,59 @@ for (let i = 0; i < 100; i++) {
   favouriteRecords.push({
     listing_info: faker.lorem.paragraph(),
     space_info: faker.lorem.paragraph(),
-    reviews: faker.lorem.paragraphs(),
+    reviews: faker.lorem.paragraph(),
     review_date: faker.date.month() + (Math.floor(Math.random() * (2019 - 2009) + 2009)).toString()
   });
 }
 
-User.bulkCreate(userRecords)
+// User.bulkCreate(userRecords)
+//   .then(() => {
+//     return User.findAll();
+//   }).then(users => {
+//     console.log(users)
+//   });
+
+// Place.bulkCreate(placeRecords)
+//   .then(() => {
+//     return Place.findAll();
+//   }).then(places => {
+//     console.log(places)
+//   });
+
+// Favourite.bulkCreate(favouriteRecords)
+//   .then(() => {
+//     return Favourite.findAll();
+//   }).then(favourites => {
+//     console.log(favourites)
+//   });
+
+User.drop();
+Place.drop();
+Favourite.drop();
+
+User.sync().then(() => {
+  return User.bulkCreate(userRecords)
   .then(() => {
     return User.findAll();
   }).then(users => {
     console.log(users)
   });
+});
 
-Place.bulkCreate(placeRecords)
+Place.sync().then(() => {
+  Place.bulkCreate(placeRecords)
   .then(() => {
     return Place.findAll();
   }).then(places => {
     console.log(places)
   });
+});
 
-Favourite.bulkCreate(favouriteRecords)
+Favourite.sync().then(() => {
+  Favourite.bulkCreate(favouriteRecords)
   .then(() => {
     return Favourite.findAll();
   }).then(favourites => {
     console.log(favourites)
   });
+});
