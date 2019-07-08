@@ -134,21 +134,21 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-User.bulkCreate(userRecords, options)
+User.bulkCreate(userRecords)
   .then(() => {
     return User.findAll();
   }).then(users => {
     console.log(users)
   });
 
-Place.bulkCreate(placeRecords, options)
+Place.bulkCreate(placeRecords)
   .then(() => {
     return Place.findAll();
   }).then(places => {
     console.log(places)
   });
 
-Favourite.bulkCreate(favouriteRecords, options)
+Favourite.bulkCreate(favouriteRecords)
   .then(() => {
     return Favourite.findAll();
   }).then(favourites => {
