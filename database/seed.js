@@ -19,6 +19,11 @@ sequelize
 const Model = Sequelize.Model;
 class User extends Model {}
 User.init({
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
   first_name: {
     type: Sequelize.STRING,
     allowNull: false
@@ -33,6 +38,11 @@ User.init({
 
 class Place extends Model {}
 Place.init({
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
   place_image: {
     type: Sequelize.STRING,
     allowNull: false
@@ -63,6 +73,11 @@ Place.init({
 
 class Favourite extends Model {}
 Favourite.init({
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
   listing_info: {
     type: Sequelize.STRING,
     allowNull: false
@@ -94,7 +109,7 @@ Favourite.belongsTo(Place);
 const userRecords = [];
 const placeRecords = [];
 const favouriteRecords = [];
-const options = {validate: true};
+const options = {validate: true, timestamps: false};
 
 const placeType = ['ENTIRE HOUSE', 'ENTIRE VILLA', 'ENTIRE APARTMENT'];
 
