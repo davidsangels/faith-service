@@ -91,7 +91,7 @@ Favourite.init({
     allowNull: false
   },
   review_date: {
-    type: Sequelize.DATE,
+    type: Sequelize.STRING,
     allowNull: false
   },
 }, {
