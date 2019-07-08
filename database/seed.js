@@ -33,7 +33,8 @@ User.init({
   }
 }, {
   sequelize,
-  modelName: 'user'
+  modelName: 'user',
+  timestamps: false
 });
 
 class Place extends Model {}
@@ -68,7 +69,8 @@ Place.init({
   }
 }, {
   sequelize,
-  modelName: 'place'
+  modelName: 'place',
+  timestamps: false
 });
 
 class Favourite extends Model {}
@@ -96,7 +98,8 @@ Favourite.init({
   },
 }, {
   sequelize,
-  modelName: 'favourite'
+  modelName: 'favourite',
+  timestamps: false
 });
 
 User.hasMany(Favourite);
@@ -109,7 +112,7 @@ Favourite.belongsTo(Place);
 const userRecords = [];
 const placeRecords = [];
 const favouriteRecords = [];
-const options = {validate: true, timestamps: false};
+// const options = {validate: true, timestamps: false};
 
 const placeType = ['ENTIRE HOUSE', 'ENTIRE VILLA', 'ENTIRE APARTMENT'];
 
