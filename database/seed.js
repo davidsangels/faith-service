@@ -124,9 +124,9 @@ for (let i = 0; i < 100; i++) {
   placeRecords.push({
     place_image: faker.image.city(),
     place_location: faker.address.city(),
-    accommodation_type: placeType[Math.floor(Math.random * Math.floor(placeType.length))],
+    accommodation_type: placeType[Math.floor(Math.random() * Math.floor(placeType.length))],
     place_name: faker.random.words(),
-    price: Math.floor(Math.random * Math.floor(1000)),
+    price: Math.floor(Math.random() * Math.floor(1000)),
     rating: Math.floor(Math.random() * (6 - 1) + 1)
   });
   favouriteRecords.push({
