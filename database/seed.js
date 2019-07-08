@@ -16,8 +16,7 @@ sequelize
     console.error('Unable to connect to the database:', err);
   });
 
-// const Model = Sequelize.Model;
-// class User extends Model {}
+
 const User = sequelize.define('user', {
   id: {
     type: Sequelize.INTEGER,
@@ -33,12 +32,9 @@ const User = sequelize.define('user', {
     type: Sequelize.STRING
   }
 }, {
-  // sequelize,
-  // modelName: 'user',
   timestamps: false
 });
 
-// class Place extends Model {}
 const Place = sequelize.define('place', {
   id: {
     type: Sequelize.INTEGER,
@@ -70,12 +66,9 @@ const Place = sequelize.define('place', {
     type: Sequelize.INTEGER
   }
 }, {
-  // sequelize,
-  // modelName: 'place',
   timestamps: false
 });
 
-// class Favourite extends Model {}
 const Favourite = sequelize.define('favourite', {
   id: {
     type: Sequelize.INTEGER,
@@ -100,8 +93,6 @@ const Favourite = sequelize.define('favourite', {
     allowNull: false
   },
 }, {
-  // sequelize,
-  // modelName: 'favourite',
   timestamps: false
 });
 
@@ -111,7 +102,6 @@ const Favourite = sequelize.define('favourite', {
 // Favourite.belongsTo(Place);
 
 
-// Format: Model.bulkCreate(records: Array, options: Object)
 const userRecords = [];
 const placeRecords = [];
 const favouriteRecords = [];
@@ -140,27 +130,7 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-// User.bulkCreate(userRecords)
-//   .then(() => {
-//     return User.findAll();
-//   }).then(users => {
-//     console.log(users)
-//   });
-
-// Place.bulkCreate(placeRecords)
-//   .then(() => {
-//     return Place.findAll();
-//   }).then(places => {
-//     console.log(places)
-//   });
-
-// Favourite.bulkCreate(favouriteRecords)
-//   .then(() => {
-//     return Favourite.findAll();
-//   }).then(favourites => {
-//     console.log(favourites)
-//   });
-
+// drop tables each time we run (so we only create 100 records per table)
 User.drop();
 Place.drop();
 Favourite.drop();
@@ -191,3 +161,8 @@ Favourite.sync().then(() => {
     console.log(favourites)
   });
 });
+
+// need to close connection for seed to stop running?
+  // sequelize.close() gives errors (Unhandled rejection Error: pool is draining and cannot accept work)
+    // closing before finishing query -- not written in the right place
+  // sequelize.close().then(() => console.log('disconnecting gracefully'));
