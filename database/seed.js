@@ -136,7 +136,7 @@ for (let i = 0; i < 100; i++) {
     listing_info: faker.lorem.paragraph(),
     space_info: faker.lorem.paragraph(),
     reviews: faker.lorem.paragraphs(),
-    review_date: faker.date.month()
+    review_date: faker.date.month() + (Math.floor(Math.random() * (2019 - 2009) + 2009)).toString()
   });
 }
 
