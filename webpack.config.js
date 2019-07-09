@@ -1,4 +1,4 @@
-var path = require('path');
+const path = require('path');
 // var DIST_DIR = path.join(__dirname, '/client/dist');
 
 module.exports = {
@@ -10,17 +10,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test : /\.jsx?/,
+        test: /\.jsx?/,
         use: {
-            loader : 'babel-loader', 
-            query: {
-              presets: ['@babel/react', '@babel/env']
-            }
-        }     
+          loader: 'babel-loader',
+          query: {
+            presets: ['@babel/react', '@babel/env']
+          }
+        }
       }
-    ],
+    ]
   },
   resolve: {
     extensions: ['*', '.js', '.jsx']
-}
+  }
 };
