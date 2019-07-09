@@ -6,5 +6,9 @@
  */
 
 module.exports = {
-  extends: './node_modules/eslint-config-hackreactor/index.js'
+  extends: 'airbnb',
+  rules: {
+    'comma-dangle': ['error', 'never'],
+    'no-console': 'off'
+  }
 };
