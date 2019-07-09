@@ -33,7 +33,7 @@ From within the root directory:
 
 ```sh
 npm install react react-dom
-npm install body-parser express faker nodemon mysql sequelize
+npm install body-parser express faker nodemon mysql mysql2 sequelize
 npm install @babel/cli @babel/core @babel/preset-react @babel/preset-react --save-dev
 npm install babel-loader eslint --save-dev
 npm install webpack webpack-cli --save-dev
