@@ -1,6 +1,6 @@
 const faker = require('faker');
-const db = require('./index.js');
 const Sequelize = require('sequelize');
+// const db = require('./index.js');
 
 const sequelize = new Sequelize('related_listings', 'root', '', {
   host: 'localhost',
@@ -12,7 +12,7 @@ sequelize
   .then(() => {
     console.log('Connection has been established successfully.');
   })
-  .catch(err => {
+  .catch((err) => {
     console.error('Unable to connect to the database:', err);
   });
 
@@ -91,7 +91,7 @@ const Favourite = sequelize.define('favourite', {
   review_date: {
     type: Sequelize.STRING,
     allowNull: false
-  },
+  }
 }, {
   timestamps: false
 });
@@ -109,7 +109,7 @@ const favouriteRecords = [];
 
 const placeType = ['ENTIRE HOUSE', 'ENTIRE VILLA', 'ENTIRE APARTMENT'];
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 100; i += 1) {
   userRecords.push({
     first_name: faker.name.firstName(),
     last_name: faker.name.lastName()
@@ -135,34 +135,27 @@ User.drop();
 Place.drop();
 Favourite.drop();
 
-User.sync().then(() => {
-  return User.bulkCreate(userRecords)
-  .then(() => {
-    return User.findAll();
-  }).then(users => {
-    console.log(users)
-  });
-});
+User.sync().then(() => User.bulkCreate(userRecords)
+  .then(() => User.findAll()).then((users) => {
+    console.log(users);
+  }));
 
 Place.sync().then(() => {
   Place.bulkCreate(placeRecords)
-  .then(() => {
-    return Place.findAll();
-  }).then(places => {
-    console.log(places)
-  });
+    .then(() => Place.findAll()).then((places) => {
+      console.log(places);
+    });
 });
 
 Favourite.sync().then(() => {
   Favourite.bulkCreate(favouriteRecords)
-  .then(() => {
-    return Favourite.findAll();
-  }).then(favourites => {
-    console.log(favourites)
-  });
+    .then(() => Favourite.findAll()).then((favourites) => {
+      console.log(favourites);
+    });
 });
 
 // need to close connection for seed to stop running?
-  // sequelize.close() gives errors (Unhandled rejection Error: pool is draining and cannot accept work)
-    // closing before finishing query -- not written in the right place
-  // sequelize.close().then(() => console.log('disconnecting gracefully'));
+// sequelize.close() gives errors
+// (Unhandled rejection Error: pool is draining and cannot accept work)
+// closing before finishing query -- not written in the right place
+// sequelize.close().then(() => console.log('disconnecting gracefully'))
