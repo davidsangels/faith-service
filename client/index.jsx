@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 const App = () => (
   <div>
-    hi
+    using index.jsx instead
   </div>
 );
 
