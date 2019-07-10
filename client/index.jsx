@@ -1,10 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const App = () => (
-  <div>
-    using index.jsx instead
-  </div>
-);
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>More places to stay</h1>
+        {/* hello */}
+      </div>
+    );
+  }
+}
 
 ReactDOM.render(<App />, document.getElementById('app'));
