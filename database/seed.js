@@ -4,7 +4,8 @@ const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize('related_listings', 'root', '', {
   host: 'localhost',
-  dialect: 'mysql'
+  dialect: 'mysql',
+  logging: false
 });
 
 sequelize
@@ -137,20 +138,20 @@ Favourite.drop();
 
 User.sync().then(() => User.bulkCreate(userRecords)
   .then(() => User.findAll()).then((users) => {
-    console.log(users);
+    // console.log(users);
   }));
 
 Place.sync().then(() => {
   Place.bulkCreate(placeRecords)
     .then(() => Place.findAll()).then((places) => {
-      console.log(places);
+      // console.log(places);
     });
 });
 
 Favourite.sync().then(() => {
   Favourite.bulkCreate(favouriteRecords)
     .then(() => Favourite.findAll()).then((favourites) => {
-      console.log(favourites);
+      // console.log(favourites);
     });
 });
 
@@ -159,3 +160,9 @@ Favourite.sync().then(() => {
 // (Unhandled rejection Error: pool is draining and cannot accept work)
 // closing before finishing query -- not written in the right place
 // sequelize.close().then(() => console.log('disconnecting gracefully'))
+
+module.exports = {
+  User,
+  Place,
+  Favourite
+};
