@@ -12,7 +12,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>More places to stay</h1>
-        <Carousel />
+        <Carousel data={this.props.data} />
       </div>
     );
   }
