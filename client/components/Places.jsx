@@ -3,9 +3,9 @@ import React from 'react';
 const Places = props => (
   <div className="places">
     <img src={props.place.place_image} />
-    <div>{props.place.place_location}</div>
+    <div>{props.place.accommodation_type} - {props.place.place_location}</div>
     <div>{props.place.place_name}</div>
-    <div>{props.place.stars}</div>
+    <div>${props.place.price}/night</div>
     <div>{props.place.rating}</div>
   </div>
 );
