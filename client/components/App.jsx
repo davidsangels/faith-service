@@ -24,15 +24,19 @@ class App extends React.Component {
   render() {
     const { places } = this.state;
     return (
-      <div>
-        <div style={{ marginBottom: '24px' }}>
-          <h2 tabIndex="-1" className="header1">
-            <div className="title">
-              <span>More places to stay</span>
+      <div className="main">
+        <section>
+          <div style={{ marginTop: '16px', marginBottom: '24px' }}>
+            <div style={{ marginBottom: '24px' }}>
+              <h2 tabIndex="-1" className="header1">
+                <div className="title">
+                  <span>More places to stay</span>
+                </div>
+              </h2>
             </div>
-          </h2>
-        </div>
-        <Carousel data={places} />
+            <Carousel data={places} />
+          </div>
+        </section>
       </div>
     );
   }
