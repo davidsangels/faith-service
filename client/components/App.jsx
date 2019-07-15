@@ -14,7 +14,7 @@ class App extends React.Component {
     fetch('http://localhost:3000/testing')
       .then(response => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         this.setState({
           places: data
         })
@@ -25,7 +25,13 @@ class App extends React.Component {
     const { places } = this.state;
     return (
       <div>
-        <h1>More places to stay</h1>
+        <div style={{ marginBottom: '24px' }}>
+          <h2 tabIndex="-1" className="header1">
+            <div className="title">
+              <span>More places to stay</span>
+            </div>
+          </h2>
+        </div>
         <Carousel data={places} />
       </div>
     );
