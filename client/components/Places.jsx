@@ -4,7 +4,7 @@ const Places = props => (
   <div className="places">
     {/* <img src={props.place.place_image} /> */}
     <img src="https://a0.muscache.com/im/pictures/74dc345d-c45c-4fb8-93d3-5eaab6ed650d.jpg?aki_policy=large" />
-    <div>
+    <div style={{ marginTop: '3px' }}>
       <span id="typeAndPlace" style={{ color: 'rgb(118, 118, 118)' }}>
         {props.place.accommodation_type}
         <span aria-hidden="true"> · </span>

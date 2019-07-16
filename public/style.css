@@ -25,14 +25,14 @@ div {
   font-size: 1em !important;
   font-weight: inherit !important;
   line-height: inherit !important;
-  padding-left: 6px !important;
-  padding-right: 6px !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
 }
 
 .title {
   overflow-wrap: break-word;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 700;
   line-height: 1.25em;
   color: rgb(72, 72, 72);
