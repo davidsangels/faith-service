@@ -6,7 +6,10 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      places: []
+      places: [],
+      filteredPlaces: [],
+      rightArrow: false,
+      start: 0
     };
   }
 
@@ -17,12 +20,27 @@ class App extends React.Component {
         // console.log(data);
         this.setState({
           places: data
-        })
-      })
+        });
+      });
+  }
+
+  handleRightArrow(event) {
+    console.log('buddin ;-)');
+    const nextThreePlaces = [...this.state.places];
+    let newStart = this.state.start + 3;
+    let newEnd = newStart + 3;
+
+    this.setState({
+      rightArrow: true,
+      start: newStart,
+      filteredPlaces: nextThreePlaces.slice(newStart, newEnd)
+    });
   }
 
   render() {
     const { places } = this.state;
+    const { filteredPlaces } = this.state;
+    const { rightArrow } = this.state;
     return (
       <div className="main">
         <section>
@@ -34,7 +52,8 @@ class App extends React.Component {
                 </div>
               </h2>
             </div>
-            <Carousel data={places} />
+            <Carousel data={rightArrow ? filteredPlaces : places} />
+            <div onClick={() => this.handleRightArrow(true)}>></div>
           </div>
         </section>
       </div>
