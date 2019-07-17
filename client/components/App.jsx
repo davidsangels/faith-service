@@ -8,7 +8,6 @@ class App extends React.Component {
     this.state = {
       places: [],
       filteredPlaces: [],
-      rightArrow: false,
       start: 0
     };
   }
@@ -19,28 +18,48 @@ class App extends React.Component {
       .then((data) => {
         // console.log(data);
         this.setState({
-          places: data
+          places: data,
+          filteredPlaces: data.slice(0, 3)
         });
       });
   }
 
-  handleRightArrow(event) {
-    console.log('buddin ;-)');
-    const nextThreePlaces = [...this.state.places];
-    let newStart = this.state.start + 3;
-    let newEnd = newStart + 3;
+  handleLeftArrow(event) {
+    const { start } = this.state;
+    const { places } = this.state;
+
+    if (start < 3) {
+      return;
+    }
+
+    const prevThreePlaces = [...places];
+    const newEnd = start;
+    const newStart = newEnd - 3;
 
     this.setState({
-      rightArrow: true,
+      start: newStart,
+      filteredPlaces: prevThreePlaces.slice(newStart, newEnd)
+    });
+  }
+
+  handleRightArrow(event) {
+    // console.log('buddin ;-)');
+    const { start } = this.state;
+    const { places } = this.state;
+
+    const nextThreePlaces = [...places];
+    const newStart = start + 3;
+    const newEnd = newStart + 3;
+
+    this.setState({
       start: newStart,
       filteredPlaces: nextThreePlaces.slice(newStart, newEnd)
     });
   }
 
   render() {
-    const { places } = this.state;
     const { filteredPlaces } = this.state;
-    const { rightArrow } = this.state;
+
     return (
       <div className="main">
         <section>
@@ -52,8 +71,9 @@ class App extends React.Component {
                 </div>
               </h2>
             </div>
-            <Carousel data={rightArrow ? filteredPlaces : places} />
-            <div onClick={() => this.handleRightArrow(true)}>></div>
+            <div onClick={() => this.handleLeftArrow(true)}>Left</div>
+            <Carousel data={filteredPlaces} />
+            <div onClick={() => this.handleRightArrow(true)}>Right</div>
           </div>
         </section>
       </div>
