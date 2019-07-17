@@ -22,7 +22,6 @@ app.use(express.static(path.join(__dirname, '/../public')));
 // });
 
 app.get('/testing', (req, res) => {
-  // console.log('ran')
   Tables.Place.findAll().then((results) => {
     res.status(200).send(results);
   }).catch((error) => {

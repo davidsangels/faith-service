@@ -13,12 +13,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // console.log('fetched')
     fetch('http://localhost:3000/testing')
       .then(response => response.json())
       .then((data) => {
-        // console.log('newData');
-        console.log(data)
+        // console.log(data);
         this.setState({
           places: data,
           filteredPlaces: data.slice(0, 3)
