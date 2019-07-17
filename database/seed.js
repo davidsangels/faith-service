@@ -102,7 +102,7 @@ const Favourite = sequelize.define('favourite', {
 // Place.hasMany(Favourite);
 // Favourite.belongsTo(Place);
 
-
+// console.log('before', )
 const userRecords = [];
 const placeRecords = [];
 const favouriteRecords = [];
@@ -134,7 +134,9 @@ for (let i = 0; i < 100; i += 1) {
 }
 
 // drop tables each time we run (so we only create 100 records per table)
+// console.log(User)
 User.drop();
+// console.log(User)
 Place.drop();
 Favourite.drop();
 

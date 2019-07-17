@@ -13,10 +13,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    // console.log('fetched')
     fetch('http://localhost:3000/testing')
       .then(response => response.json())
       .then((data) => {
-        // console.log(data);
+        // console.log('newData');
+        console.log(data)
         this.setState({
           places: data,
           filteredPlaces: data.slice(0, 3)
@@ -28,12 +30,13 @@ class App extends React.Component {
     const { start } = this.state;
     const { places } = this.state;
 
-    if (start < 3) {
+    if (start < 1) {
+      console.log('back to start')
       return;
     }
 
     const prevThreePlaces = [...places];
-    const newEnd = start;
+    const newEnd = start + 2;
     const newStart = newEnd - 3;
 
     this.setState({
@@ -47,8 +50,13 @@ class App extends React.Component {
     const { start } = this.state;
     const { places } = this.state;
 
+    if (start > 99) {
+      console.log('reached end')
+      return;
+    }
+
     const nextThreePlaces = [...places];
-    const newStart = start + 3;
+    const newStart = start + 1;
     const newEnd = newStart + 3;
 
     this.setState({
