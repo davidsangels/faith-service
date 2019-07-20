@@ -48,6 +48,24 @@ h2 {
   /* font-weight: bold; */
 }
 
+.carouselDiv {
+  display: flex;
+  justify-content: flex-start;
+
+}
+
+#leftArrow {
+  cursor: pointer;
+  content:url(http://skyglobal.github.io/skycons/icons/chevron-medium-left.svg);
+  max-width: 0.9%;
+}
+
+#rightArrow {
+  cursor: pointer;
+  content:url(http://skyglobal.github.io/skycons/icons/chevron-medium-right.svg);
+  max-width: 0.9%;
+}
+
 #typeAndPlace {
   overflow-wrap: break-word !important;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
@@ -55,6 +73,7 @@ h2 {
   font-weight: 800 !important;
   line-height: 1.33333em !important;
   text-transform: uppercase !important;
+  cursor: pointer;
 }
 
 #placeName {
@@ -63,6 +82,11 @@ h2 {
   font-weight: 800 !important;
   line-height: 1.375em !important;
   color: #484848 !important;
+  cursor: pointer;
+}
+
+#price {
+  cursor: pointer;
 }
 
 #rating{
@@ -73,6 +97,7 @@ h2 {
   line-height: 1.33333em !important;
   color: rgb(72, 72, 72) !important;
   margin: 0px !important;
+  cursor: pointer;
 }
 
 .places {
@@ -91,4 +116,5 @@ h2 {
   border-radius: 3px;
   width: 333px;
   height: 222px;
+  cursor: pointer;
 }

@@ -12,7 +12,7 @@ const Places = props => (
       </span>
     </div>
     <div id="placeName">{props.place.place_name}</div>
-    <div>${props.place.price}/night</div>
+    <div id="price">${props.place.price}/night</div>
     <div id="rating">{props.place.rating}</div>
   </div>
 );

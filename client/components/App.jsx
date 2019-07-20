@@ -77,9 +77,11 @@ class App extends React.Component {
                 </div>
               </h2>
             </div>
-            <div onClick={() => this.handleLeftArrow(true)}>Left</div>
-            <Carousel data={filteredPlaces} />
-            <div onClick={() => this.handleRightArrow(true)}>Right</div>
+            <div className="carouselDiv">
+              <div id="leftArrow" onClick={() => this.handleLeftArrow(true)}></div>
+              <Carousel data={filteredPlaces} />
+              <div id="rightArrow" onClick={() => this.handleRightArrow(true)}></div>
+            </div>
           </div>
         </section>
       </div>
