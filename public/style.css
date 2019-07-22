@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
   font-size: 14px;
@@ -23,8 +27,8 @@ div {
 .header1 {
   /* color: inherit !important; */
   font-size: 1em !important;
-  font-weight: inherit !important;
-  line-height: inherit !important;
+  /* font-weight: inherit !important;
+  line-height: inherit !important; */
   padding-left: 8px !important;
   padding-right: 8px !important;
 }
@@ -53,16 +57,20 @@ h2 {
   justify-content: flex-start;
 }
 
-#leftArrow {
+div#leftArrow {
   cursor: pointer;
   content:url(http://skyglobal.github.io/skycons/icons/chevron-medium-left.svg);
   max-width: 0.9%;
+  height: 342px;
+  width: 24px;
 }
 
-#rightArrow {
+div#rightArrow {
   cursor: pointer;
   content:url(http://skyglobal.github.io/skycons/icons/chevron-medium-right.svg);
   max-width: 0.9%;
+  height: 342px;
+  width: 24px;
 }
 
 #typeAndPlace {
@@ -89,17 +97,17 @@ h2 {
 }
 
 #rating{
-  overflow-wrap: break-word !important;
+  /* overflow-wrap: break-word !important;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
   font-size: 12px !important;
   font-weight: 600 !important;
   line-height: 1.33333em !important;
   color: rgb(72, 72, 72) !important;
-  margin: 0px !important;
+  margin: 0px !important; */
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
-  max-width: 1%;
+  justify-content: flex-start;
+  /* max-width: 1%; */
   /* //grey
   data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMTAwMCAxMDAwJyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGZpbGw9JyNEOEQ4RDgnPjxwYXRoIGQ9J005NzIgMzgwYzkgMjggMiA1MC0yMCA2N0w3MjUgNjE5bDg3IDI4MGMxMSAzOS0xOCA3NS01NCA3NS0xMiAwLTIzLTQtMzMtMTJMNDk5IDc5MCAyNzMgOTYyYTU4IDU4IDAgMCAxLTc4LTEyIDUwIDUwIDAgMCAxLTgtNTFsODYtMjc4TDQ2IDQ0N2MtMjEtMTctMjgtMzktMTktNjcgOC0yNCAyOS00MCA1Mi00MGgyODBsODctMjc5YzctMjMgMjgtMzkgNTItMzkgMjUgMCA0NyAxNyA1NCA0MWw4NyAyNzdoMjgwYzI0IDAgNDUgMTYgNTMgNDB6Jy8+PC9zdmc+
 
