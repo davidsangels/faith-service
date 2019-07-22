@@ -114,7 +114,8 @@ h2 {
   height: 100%;
   white-space: nowrap !important; */
   /* width: 100% !important; */
-  height: 100% !important;
+  /* height: 100% !important; */
+  width: 333px;
   padding-left: 8px !important;
   padding-right: 8px !important;
 }
