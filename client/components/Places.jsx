@@ -36,7 +36,8 @@ const Places = (props) => {
       <div id="placeName">{place.place_name}</div>
       <div id="price">${place.price}/night</div>
       <div id="rating">
-        {ratingStars} {place.rating}
+        <span>{ratingStars}</span>
+        <div id="num">{place.rating}</div>
       </div>
     </div>
   )
