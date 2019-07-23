@@ -8,7 +8,6 @@ body {
   line-height: 1.43;
   color: #484848;
   background-color: #fff;
-  /* margin: 0; */
   -webkit-font-smoothing: antialiased;
 }
 
@@ -16,8 +15,6 @@ body {
   display: flex;
   justify-content: flex-start;
   margin-top: 2%;
-  width: 100%;
-  height: 100%;
 }
 
 div {
@@ -25,10 +22,7 @@ div {
 }
 
 .header1 {
-  /* color: inherit !important; */
   font-size: 1em !important;
-  /* font-weight: inherit !important;
-  line-height: inherit !important; */
   padding-left: 8px !important;
   padding-right: 8px !important;
 }
@@ -44,18 +38,15 @@ div {
 
 h2 {
   display: block;
-  /* font-size: 1.5em; */
   margin-block-start: 0.83em;
   margin-block-end: 0.83em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  /* font-weight: bold; */
 }
 
 .carouselDiv {
   display: flex;
   justify-content: flex-start;
-  /* scroll-behavior: smooth; */
 }
 
 div#leftArrow {
@@ -98,13 +89,6 @@ div#rightArrow {
 }
 
 #rating {
-  /* overflow-wrap: break-word !important;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  line-height: 1.33333em !important;
-  color: rgb(72, 72, 72) !important;
-  margin: 0px !important; */
   cursor: pointer;
   display: flex;
   justify-content: flex-start;
@@ -115,13 +99,6 @@ div#rightArrow {
 }
 
 .places {
-  /* margin-right: 8px;
-  margin-left: 8px;
-  width: 100%;
-  height: 100%;
-  white-space: nowrap !important; */
-  /* width: 100% !important; */
-  /* height: 100% !important; */
   width: 333px;
   padding-left: 8px !important;
   padding-right: 8px !important;
