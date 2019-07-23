@@ -18,7 +18,7 @@ class App extends React.Component {
       .then((data) => {
         // console.log(data);
         this.setState({
-          places: data,
+          places: data.slice(0, 12),
           filteredPlaces: data.slice(0, 3)
         });
       });
@@ -48,7 +48,7 @@ class App extends React.Component {
     const { start } = this.state;
     const { places } = this.state;
 
-    if (start > 99) {
+    if (start > 8) {
       console.log('reached end')
       return;
     }
@@ -78,9 +78,11 @@ class App extends React.Component {
               </h2>
             </div>
             <div className="carouselDiv">
-              <div id="leftArrow" onClick={() => this.handleLeftArrow(true)}></div>
+              {this.state.start ? <div id="leftArrow" onClick={() => this.handleLeftArrow(true)}></div> : '' }
+              {/* <div id="leftArrow" onClick={() => this.handleLeftArrow(true)}></div> */}
               <Carousel data={filteredPlaces} />
-              <div id="rightArrow" onClick={() => this.handleRightArrow(true)}></div>
+              {/* <div id="rightArrow" onClick={() => this.handleRightArrow(true)}></div> */}
+              {(this.state.start < 9) ? <div id="rightArrow" onClick={() => this.handleRightArrow(true)}></div> : '' }
             </div>
           </div>
         </section>

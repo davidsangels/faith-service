@@ -55,6 +55,7 @@ h2 {
 .carouselDiv {
   display: flex;
   justify-content: flex-start;
+  /* scroll-behavior: smooth; */
 }
 
 div#leftArrow {
