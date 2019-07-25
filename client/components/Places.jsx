@@ -37,7 +37,7 @@ const Places = (props) => {
       <div id="price">${place.price}/night</div>
       <div id="rating">
         <span>{ratingStars}</span>
-        <div id="num">{place.rating}</div>
+        <div id="num">{Math.floor(Math.random() * 300)}</div>
       </div>
     </div>
   )
