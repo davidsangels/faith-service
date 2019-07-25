@@ -64,7 +64,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { filteredPlaces } = this.state;
+    const { places } = this.state;
 
     return (
       <div className="main">
@@ -78,11 +78,11 @@ class App extends React.Component {
               </h2>
             </div>
             <div className="carouselDiv">
-              {this.state.start ? <div id="leftArrow" onClick={() => this.handleLeftArrow(true)}></div> : '' }
+              {this.state.start ? <div id="leftArrow" onClick={() => this.handleLeftArrow(true)}></div> : <div /> }
               {/* <div id="leftArrow" onClick={() => this.handleLeftArrow(true)}></div> */}
-              <Carousel data={filteredPlaces} />
+              <Carousel data={places} />
               {/* <div id="rightArrow" onClick={() => this.handleRightArrow(true)}></div> */}
-              {(this.state.start < 9) ? <div id="rightArrow" onClick={() => this.handleRightArrow(true)}></div> : '' }
+              {(this.state.start < 9) ? <div id="rightArrow" onClick={() => this.handleRightArrow(true)}></div> : <div /> }
             </div>
           </div>
         </section>
