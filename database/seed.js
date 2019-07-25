@@ -1,24 +1,8 @@
 const faker = require('faker');
 const Sequelize = require('sequelize');
-// const db = require('./index.js');
+const db = require('./index.js');
 
-const sequelize = new Sequelize('related_listings', 'root', '', {
-  host: 'localhost',
-  dialect: 'mysql',
-  logging: false
-});
-
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err);
-  });
-
-
-const User = sequelize.define('user', {
+const User = db.define('user', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -36,7 +20,7 @@ const User = sequelize.define('user', {
   timestamps: false
 });
 
-const Place = sequelize.define('place', {
+const Place = db.define('place', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -70,7 +54,7 @@ const Place = sequelize.define('place', {
   timestamps: false
 });
 
-const Favourite = sequelize.define('favourite', {
+const Favourite = db.define('favourite', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -133,14 +117,14 @@ for (let i = 0; i < 100; i += 1) {
 }
 
 // drop tables each time we run (so we only create 100 records per table)
-User.drop();
-Place.drop();
-Favourite.drop();
+// User.drop();
+// Place.drop();
+// Favourite.drop();
 
-User.sync().then(() => User.bulkCreate(userRecords)
-  .then(() => User.findAll()).then((users) => {
-    // console.log(users);
-  }));
+// User.sync().then(() => User.bulkCreate(userRecords)
+//   .then(() => User.findAll()).then((users) => {
+//     // console.log(users);
+//   }));
 
 Place.sync().then(() => {
   Place.bulkCreate(placeRecords)
